@@ -5,11 +5,7 @@
         <div class="border p-1">
           <h5>One Way Data Binding</h5>
           <p>
-            Use the property "message" on the data object in our component for
-            one way data binding to display the message in our template. Replace
-            the comment with the property name "state.message" in the curlies.
-            Check out what happens below. Now go change the value of message in
-            our components script area and see what happens.
+           Results for message: {{ state.message }}
           </p>
           <p>{{}}</p>
         </div>
@@ -21,10 +17,10 @@
             html to display the value. Notice Vue will rerender each time the
             value changes.
           </p>
-          <!-- add a v-model to this input that will reference "myName" within the state object-->
-          <input />
+          
+          <input v-model="state.myName"/>
           <!-- reference "myName" from the state -->
-          <p>{{}}</p>
+          <p>{{ state.myName }}</p>
         </div>
         <div class="border p-1">
           <h5>Class Binding</h5>
@@ -37,7 +33,7 @@
           </p>
           <div class="red">
             <!-- add a class binding attribute to the p tag that references the state isActive value -->
-            <p>This text will turn green on active</p>
+            <p :class="{pink:state.isActive == true}">This text will turn green on active</p>
           </div>
         </div>
       </div>
@@ -54,9 +50,10 @@ export default {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
       //create a property called myName and set its value to "type your name here"
-      message: "Super secret message here!",
+      message: "Super secret message here!!!!!!",
       //change isActive to true
-      isActive: false,
+      isActive: true,
+      myName: "type your name here",
     });
     return { state };
   },
@@ -72,4 +69,10 @@ export default {
 .active {
   color: green;
 }
+
+.pink{
+  color: pink;
+}
+
+
 </style>

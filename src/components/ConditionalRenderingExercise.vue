@@ -1,5 +1,5 @@
 <template>
-  <div class="condtional-rendering-exercise container">
+  <div class="conditional-rendering-exercise container">
     <div class="row">
       <div class="col-12">
         <div class="border p-1">
@@ -10,7 +10,7 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="state.player-card text-center" v-if="true == false">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -38,7 +38,7 @@
             toggle the value to true to get it to show up again.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="state.player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -125,11 +125,11 @@
 import { reactive } from "vue";
 
 export default {
-  name: "condtional-rendering-exercise",
+  name: "conditional-rendering-exercise",
   setup() {
     // NOTE typically state will be abstracted to a global AppState
     const state = reactive({
-      //add a property to toggle the player-card here.
+      showPlayer: true,
       //add a property to set the number value here.
       player: {
         photo: "https://robohash.org/Mick",
